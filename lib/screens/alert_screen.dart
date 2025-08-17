@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class alerScreen extends StatelessWidget{
-  const alerScreen({super.key});
+class AlertScreen extends StatelessWidget{
+  const AlertScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

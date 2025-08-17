@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class listview1_screen extends StatelessWidget{
-  const listview1_screen({super.key});
+class Listview1Screen extends StatelessWidget{
+  const Listview1Screen({super.key});
 
   @override
   Widget build(BuildContext context) {

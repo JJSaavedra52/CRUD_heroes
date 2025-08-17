@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }*/
 
-import 'screens/screens.dart' show alerScreen, cardScreen, homeScreen, listview1_screen, listview2_screen;
+import 'package:fl_componentes/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -137,14 +137,20 @@ class MyApp extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       title: 'MaterialApp',
 
-      initialRoute: 'listview2',
+      initialRoute: AppRoutes.initialRoute,
+
+      routes: AppRoutes.getRoutes(),
+      /*
       routes:{
-        'home' : (BuildContext context) =>  const homeScreen(),
-        'card' : (BuildContext context) =>  const cardScreen(),
-        'alert' : (BuildContext context) =>  const alerScreen(),
-        'listview1' : (BuildContext context) =>  const listview1_screen(),
-        'listview2' : (BuildContext context) =>  const listview2_screen(),
-      },
+        'home' : (BuildContext context) =>  const HomeScreen(),
+        'card' : (BuildContext context) =>  const CardScreen(),
+        'alert' : (BuildContext context) =>  const AlerScreen(),
+        'listview1' : (BuildContext context) =>  const Listview1Screen(),
+        'listview2' : (BuildContext context) =>  const Listview2Screen(),
+      },*/
+
+      //onGenerateRoute: AppRoutes.onGenerateRoute,
+
       /*
       home: Scaffold(
         appBar: AppBar(
