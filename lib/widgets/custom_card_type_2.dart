@@ -24,17 +24,14 @@ class CustomCardType2 extends StatelessWidget {
       shadowColor: AppTheme.primary.withOpacity(0.5),
       child: Column(
         children: [
-
           FadeInImage(
             image: NetworkImage( imageUrl ),
-            placeholder: const AssetImage('jar-loading.gif'),
+            placeholder: const AssetImage('assets/jar-loading.gif'),
             width: double.infinity,
             height: 230,
             fit: BoxFit.cover,
             fadeInDuration: const Duration(milliseconds: 300),
           ),
-
-
           if ( name != null )
             Container(
               alignment: AlignmentDirectional.centerEnd,
