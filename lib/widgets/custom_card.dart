@@ -5,12 +5,12 @@ class CustomCardType extends StatelessWidget {
     super.key,
     required this.image,
     required this.name,
-    required this.descrition,
+    required this.descriptions,
   });
 
   final Widget image;
   final String name;
-  final List<Widget> descrition;
+  final List<Widget> descriptions;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class CustomCardType extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                ...descrition,
+                ...descriptions,
               ],
             ),
           ),

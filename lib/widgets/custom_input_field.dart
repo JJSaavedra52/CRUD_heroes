@@ -15,7 +15,7 @@ class CustomInputField extends StatelessWidget {
 
 
   const CustomInputField({
-    Key? key,
+    super.key,
     this.hintText,
     this.labelText,
     this.helperText,
@@ -25,7 +25,7 @@ class CustomInputField extends StatelessWidget {
     this.obscureText = false, 
     required this.formProperty, 
     required this.formValues,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

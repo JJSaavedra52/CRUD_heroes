@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:typed_data';
-
 import 'package:fl_componentes/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
@@ -9,25 +8,25 @@ class CustomListView extends StatelessWidget{
     super.key,
     required this.name,
     required this.image,
-    required this.descritions,
+    required this.descriptions,
     required this.fuente,
   });
 
   final String name;
   final String image;
-  final List<String> descritions;
-  final fuente;
+  final List<String> descriptions;
+  final Future<dynamic> fuente;
 
   itemBuilder(BuildContext context, int index, characters) {
     final Map character = characters[index];
     List<Text> description = [];
-    for (String des in descritions){
+    for (String des in descriptions){
       description.add(Text("$des: ${getData(des, character)}"));
     }
     return CustomCardType(
       image: getImage(getData(image, character)),
       name: getData(name, character),
-      descrition: description,
+      descriptions: description,
     );
   }
   

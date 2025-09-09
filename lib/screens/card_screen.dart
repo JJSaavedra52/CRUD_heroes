@@ -19,7 +19,6 @@ class _CardScreenState extends State<CardScreen> {
   }
 
   Future<void> fetchCharacters() async {
-    final provider = RickMortyProvider();
     final data = await RickMortyProvider.getOnDisplayCharacters();
     setState(() {
       characters = data.take(10).toList();

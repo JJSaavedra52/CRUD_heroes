@@ -7,10 +7,10 @@ class CustomCardType2 extends StatelessWidget {
   final String? name;
   
   const CustomCardType2({
-    Key? key, 
+    super.key,
     required this.imageUrl, 
     this.name
-  }) : super(key: key);
+  });
 
 
   @override

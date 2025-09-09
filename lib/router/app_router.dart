@@ -1,4 +1,4 @@
-import 'package:fl_componentes/models/menu_optons.dart';
+import 'package:fl_componentes/models/menu_options.dart';
 import 'package:fl_componentes/screens/screens.dart' ;
 import 'package:flutter/material.dart' ;
 
@@ -21,13 +21,6 @@ class AppRoutes {
     }
 
     return appRoutes;
-
-    /*
-    'home' : (BuildContext context) =>  const HomeScreen(),
-    'card' : (BuildContext context) =>  const CardScreen(),
-    'alert' : (BuildContext context) =>  const AlerScreen(),
-    'listview1' : (BuildContext context) =>  const Listview1Screen(),
-    'listview2' : (BuildContext context) =>  const Listview2Screen(),*/
   }
   /* mejorar el enrutador
   static Map<String, Widget Function(BuildContext)> routes = ...menuOptions.map((option) => {

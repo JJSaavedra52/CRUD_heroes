@@ -18,7 +18,7 @@ class Listview2Screen extends StatelessWidget{
       trailing: Icon(Icons.arrow_forward_ios_outlined, color: Colors.indigo,),
       onTap: (){
         final juego = options[index];
-        print(juego);
+        debugPrint(juego);
       },
     );
 
