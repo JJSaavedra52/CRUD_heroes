@@ -1,5 +1,4 @@
-import 'package:fl_componentes/models/menu_options.dart';
-import 'package:fl_componentes/screens/location_screen.dart';
+import 'package:fl_componentes/models/models.dart';
 import 'package:fl_componentes/screens/screens.dart' ;
 import 'package:flutter/material.dart' ;
 
@@ -13,6 +12,7 @@ class AppRoutes {
     MenuOption(route: "listview1", icon: Icons.list_alt_outlined, name: "Listview1", screen: Listview1Screen()),
     MenuOption(route: "listview2", icon: Icons.list_alt_outlined, name: "Listview2", screen: Listview2Screen()),
     MenuOption(route: "LocationScreen", icon: Icons.list_alt_outlined, name: "LocationScreen", screen: LocationScreen()),
+    MenuOption(route: "EpisodesScreen", icon: Icons.list_alt_outlined, name: "EpisodesScreen", screen: EpisodesScreen()),
   ];
 
   static Map<String, Widget Function(BuildContext)> getRoutes() {
@@ -24,10 +24,6 @@ class AppRoutes {
 
     return appRoutes;
   }
-  /* mejorar el enrutador
-  static Map<String, Widget Function(BuildContext)> routes = ...menuOptions.map((option) => {
-      {option.route: option.getRoute()}
-  });*/
 
   static Route<dynamic> onGenerateRoute =
       MaterialPageRoute(

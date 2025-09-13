@@ -1,0 +1,1 @@
+export 'package:fl_componentes/providers/rick_morty_provider.dart';

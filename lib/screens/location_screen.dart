@@ -1,5 +1,5 @@
-import 'package:fl_componentes/providers/rick_morty_provider.dart';
-import 'package:fl_componentes/widgets/custom_list_view.dart';
+import 'package:fl_componentes/providers/providers.dart';
+import 'package:fl_componentes/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 

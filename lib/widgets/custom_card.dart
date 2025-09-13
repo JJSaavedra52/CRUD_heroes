@@ -1,4 +1,3 @@
-import 'package:fl_componentes/widgets/sub_card_of_description.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardType extends StatelessWidget {

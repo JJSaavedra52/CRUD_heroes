@@ -1,4 +1,4 @@
-import 'package:fl_componentes/providers/rick_morty_provider.dart';
+import 'package:fl_componentes/providers/providers.dart';
 import 'package:flutter/material.dart';
 
 class CardScreen extends StatefulWidget {

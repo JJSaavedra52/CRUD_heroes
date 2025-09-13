@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:fl_componentes/models/inbound/character.dart';
 import 'package:http/http.dart' as http;
 
 class RickMortyProvider/* extends ChangeNotifier */ {
