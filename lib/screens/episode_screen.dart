@@ -16,17 +16,17 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Rick & Morty Episodes')),
       body: CustomListView(
-        fuente: RickMortyProvider.getOnDisplayLocations(),
+        fuente: RickMortyProvider.getOnDisplayEpisode(),
         image: '',
         name: 'name',
         descriptions: [
           'id',
-          'type',
-          'dimension',
+          'air_date',
+          'episode',
           'url',
           'created',
         ],
-        extras: 'residents',
+        extras: 'characters',
       ),
     );
   }

@@ -15,7 +15,7 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Rick & Morty Episodes')),
+      appBar: AppBar(title: const Text('Rick & Morty Locations')),
       body: CustomListView(
         fuente: RickMortyProvider.getOnDisplayLocations(),
         image: '',
