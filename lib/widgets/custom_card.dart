@@ -16,26 +16,15 @@ class CustomCardType extends StatelessWidget {
   final List? extras;
 
   List<Widget> getExtrasList(){
-    //debugPrint("index: $index");
-    //debugPrint("extras: $extras");
-    //final String character = extras[index]; // iterar residentes
-
-    //return Text("");
-    //return Text("data: $character");
-    /*List<int> descriptions = [];
-    return SubCardOfDescriptions(
-      descriptions: descriptions,
-    );*/
     List<Widget> res = [];
 
-    if (extras != null)
+    if (extras != null){
       for (var extra in extras!){
         res.add(
-            SubCardOfDescription(
-                characterString: extra,
-            )
+            Text(extra),
         );
       }
+    }
 
     return res;
   }
@@ -72,17 +61,8 @@ class CustomCardType extends StatelessWidget {
                 const SizedBox(height: 8),
                 ...descriptions,
                 Column(
-                  children: [
-                    Text("Characters",
-                      strutStyle: StrutStyle(
-
-                      ),
-                    ),
-                    Column(
-                      spacing: 10,
-                      children: getExtrasList(),
-                    ),
-                  ],
+                  spacing: 10,
+                  children: getExtrasList(),
                 ),
               ],
             ),
