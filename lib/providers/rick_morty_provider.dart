@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:fl_componentes/models/inbound/character.dart';
 import 'package:http/http.dart' as http;
 
 class RickMortyProvider/* extends ChangeNotifier */ {
@@ -29,5 +30,13 @@ class RickMortyProvider/* extends ChangeNotifier */ {
     final response = await http.get(url);
     final decodeData = jsonDecode(response.body) as Map<String, dynamic>;
     return decodeData['results'];
+  }
+
+  static Future<dynamic> getOnDisplayCharacterById(int id) async {
+    final url = Uri.https(baseURL,"api/character/$id");
+    final response = await http.get(url);
+    final decodeData = jsonDecode(response.body) as Map<String, dynamic>;
+    return decodeData;
+    //return Character.fromJson(decodeData);
   }
 }
