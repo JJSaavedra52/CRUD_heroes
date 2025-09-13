@@ -9,11 +9,13 @@ class CustomListView extends StatelessWidget{
     required this.name,
     required this.image,
     required this.descriptions,
+    this.extras,
     required this.fuente,
   });
 
   final String name;
   final String image;
+  final String? extras;
   final List<String> descriptions;
   final Future<dynamic> fuente;
 
@@ -23,10 +25,13 @@ class CustomListView extends StatelessWidget{
     for (String des in descriptions){
       description.add(Text("$des: ${getData(des, character)}"));
     }
+    final List extra = character[extras];
+    final Widget? imageWidget = image.isEmpty ? null : getImage(getData(image, character));
     return CustomCardType(
-      image: getImage(getData(image, character)),
+      image: imageWidget,
       name: getData(name, character),
       descriptions: description,
+      extras: extra,
     );
   }
   
