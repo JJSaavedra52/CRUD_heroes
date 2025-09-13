@@ -1,4 +1,5 @@
 import 'package:fl_componentes/models/menu_options.dart';
+import 'package:fl_componentes/screens/location_screen.dart';
 import 'package:fl_componentes/screens/screens.dart' ;
 import 'package:flutter/material.dart' ;
 
@@ -11,6 +12,7 @@ class AppRoutes {
     MenuOption(route: "alert", icon: Icons.add_alert_outlined, name: "Alert", screen: AlertScreen()),
     MenuOption(route: "listview1", icon: Icons.list_alt_outlined, name: "Listview1", screen: Listview1Screen()),
     MenuOption(route: "listview2", icon: Icons.list_alt_outlined, name: "Listview2", screen: Listview2Screen()),
+    MenuOption(route: "LocationScreen", icon: Icons.list_alt_outlined, name: "LocationScreen", screen: LocationScreen()),
   ];
 
   static Map<String, Widget Function(BuildContext)> getRoutes() {
