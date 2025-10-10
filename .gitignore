@@ -31,10 +31,6 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-##
-.metadata
-pubspec.lock
-##
 /build/
 
 # Symbolication related
@@ -47,12 +43,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-#directories
-android/
-ios/
-linux/
-macos/
-web/
-windows/
-/out/

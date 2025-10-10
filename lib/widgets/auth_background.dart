@@ -30,14 +30,10 @@ class AuthBackground extends StatelessWidget {
           // ignore: unnecessary_this
           this.child,
 
-          /*
+          
           //Ctrl + .
-          Container(
-            width: double.infinity,
-            height: 200,
-            color: Colors.blue,
-          )
-          */
+          //NewWidgetOtro()
+          
 
 
         ],
@@ -45,6 +41,21 @@ class AuthBackground extends StatelessWidget {
       
 
 
+    );
+  }
+}
+
+class NewWidgetOtro extends StatelessWidget {
+  const NewWidgetOtro({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 200,
+      color: Colors.blue,
     );
   }
 }

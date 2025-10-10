@@ -7,6 +7,8 @@ import 'package:fl_componentes/providers/login_form_provider.dart';
 import 'package:fl_componentes/ui/input_decorations.dart';
 import 'package:fl_componentes/widgets/widgets.dart';
 
+import 'package:fl_componentes/services/services.dart';
+
 //import 'package:productos_app/ui/input_decorations.dart';
 
 
@@ -31,6 +33,7 @@ class LoginScreen extends StatelessWidget {
         )
         */ 
        
+        
         child: SingleChildScrollView(
 
           child: Column(
@@ -101,11 +104,11 @@ class _LoginForm extends StatelessWidget {
                 labelText: 'Correo electrónico',
                 prefixIcon: Icons.alternate_email_rounded
               ),
-              onChanged: ( value ) => loginForm.email = value,
+              onChanged: ( value ) => loginForm.correo = value,
               validator: ( value ) {
 
                   String pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-                  RegExp regExp  = new RegExp(pattern);
+                  RegExp regExp  = RegExp(pattern);
                   
                   return regExp.hasMatch(value ?? '')
                     ? null
@@ -157,7 +160,9 @@ class _LoginForm extends StatelessWidget {
               onPressed: loginForm.isLoading ? null : () async {
                 
                 FocusScope.of(context).unfocus();
+                final authService = Provider.of<AuthService>(context, listen: false);
                 
+
                 if( !loginForm.isValidForm() ) return;
 
                 loginForm.isLoading = true;
@@ -165,9 +170,22 @@ class _LoginForm extends StatelessWidget {
                 await Future.delayed(Duration(seconds: 2 ));
 
                 // TODO: validar si el login es correcto
+                final String? errorMessage = await authService.loginLocal(loginForm.correo, loginForm.password);
+
+                if ( errorMessage == null ) {
+                  Navigator.pushReplacementNamed(context, 'home');
+                } else {
+                  // TODO: mostrar error en pantalla
+                  // print( errorMessage );
+                  NotificationsService.showSnackbar(errorMessage);
+                  loginForm.isLoading = false;
+                }
+
+
+
                 loginForm.isLoading = false;
 
-                loginForm.validarLogin();
+                //loginForm.validarLogin();
 
                 Navigator.pushReplacementNamed(context, 'home');
               }

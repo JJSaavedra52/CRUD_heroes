@@ -3,6 +3,8 @@ import 'package:fl_componentes/router/app_router.dart';
 import 'package:fl_componentes/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'services/services.dart';
 //import 'package:fl_componentes/screens/screens.dart';
 
 //void main() => runApp(const MyApp());
@@ -16,6 +18,7 @@ class AppState extends StatelessWidget {
 
     return MultiProvider(providers:[
       ChangeNotifierProvider(create: (_) => RickMortyProvider(), lazy: false,),
+        ChangeNotifierProvider(create: ( _ ) => AuthService() ),      
     ],
     child: MyApp(),
     ); 
