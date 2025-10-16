@@ -8,31 +8,59 @@ class AppRoutes {
   static const initialRoute = 'login';
 
   static final menuOptions = <MenuOption>[
-//    MenuOption(route: 'home', name: 'Home',screen: const HomeScreen(),icon: Icons.home, status:0),
-
-    MenuOption(route: 'listview1', name: 'List View Tipo 1',screen: const Listview1Screen(),icon: Icons.list, ),
-    MenuOption(route: 'listview2', name: 'List View Tipo 2',screen: const Listview2Screen(),icon: Icons.list_alt_outlined, ),
-    MenuOption(route: 'alert', name: 'Alerta',screen: const AlertScreen(),icon: Icons.align_vertical_bottom, ),
-    MenuOption(route: 'card', name: 'Tarjetas',screen: const CardScreen(),icon: Icons.credit_card,  ),
-    MenuOption(route: 'prueba', name: 'Prueba',screen: const PruebaScreen(),icon: Icons.access_alarm, ),
+    //    MenuOption(route: 'home', name: 'Home',screen: const HomeScreen(),icon: Icons.home, status:0),
+    MenuOption(
+      route: 'listview1',
+      name: 'List View Tipo 1',
+      screen: const Listview1Screen(),
+      icon: Icons.list,
+    ),
+    MenuOption(
+      route: 'listview2',
+      name: 'List View Tipo 2',
+      screen: const Listview2Screen(),
+      icon: Icons.list_alt_outlined,
+    ),
+    MenuOption(
+      route: 'alert',
+      name: 'Alerta',
+      screen: const AlertScreen(),
+      icon: Icons.align_vertical_bottom,
+    ),
+    MenuOption(
+      route: 'card',
+      name: 'Tarjetas',
+      screen: const CardScreen(),
+      icon: Icons.credit_card,
+    ),
+    MenuOption(
+      route: 'prueba',
+      name: 'Prueba',
+      screen: const PruebaScreen(),
+      icon: Icons.access_alarm,
+    ),
+    MenuOption(
+      route: 'heroes_crud',
+      name: 'CRUD Heroes',
+      screen: const HeroesCrudScreen(),
+      icon: Icons.supervised_user_circle,
+    ),
     //MenuOption(route: 'login', name: 'Login',screen: const LoginScreen(),icon: Icons.login, ),
     //MenuOption(route: 'usuario', name: 'Usuario',screen: const UsuarioScreen(),icon: Icons.person, ),
   ];
 
-
-  static Map<String, Widget Function(BuildContext)> getAppRoutes(){
-
+  static Map<String, Widget Function(BuildContext)> getAppRoutes() {
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
-
     //Adicionar de forma manual las rutas que no se quieren ver en el menu
-    appRoutes.addAll({ 'home' : ( BuildContext context ) => const HomeScreen() });
-    appRoutes.addAll({ 'login' : ( BuildContext context ) => const LoginScreen() });
-    appRoutes.addAll({ 'usuario' : ( BuildContext context ) => const UsuarioScreen() });
+    appRoutes.addAll({'home': (BuildContext context) => const HomeScreen()});
+    appRoutes.addAll({'login': (BuildContext context) => const LoginScreen()});
+    appRoutes.addAll({
+      'usuario': (BuildContext context) => const UsuarioScreen(),
+    });
 
-    for (final option in menuOptions){
+    for (final option in menuOptions) {
       appRoutes.addAll({option.route: (BuildContext context) => option.screen});
-
     }
 
     return appRoutes;
