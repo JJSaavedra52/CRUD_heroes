@@ -216,7 +216,16 @@ class _UsuarioForm extends StatelessWidget {
                 ),
               ),
               onPressed: usuarioForm.isLoading
-                  ? null
+                  ? () => showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Center( child: Text('Ha ocurrido un Error'),),
+                  content: const Text('Porfavor inténtelo nuevamente o contacte se con el administrador'),
+                  actions: <Widget>[
+                    Center(child: TextButton(onPressed: () => Navigator.pop(context, 'OK'), child: const Text('OK')),),
+                  ],
+                ),
+              )
                   : () async {
                       FocusScope.of(context).unfocus();
                       final authService = Provider.of<AuthService>(
