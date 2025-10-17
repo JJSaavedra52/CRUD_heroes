@@ -62,9 +62,23 @@ class LoginScreen extends StatelessWidget {
 
               ),
 
+              /*
               SizedBox( height: 50 ),
               Text('Crear una nueva cuenta', style: TextStyle( fontSize: 18, fontWeight: FontWeight.bold ),),
               SizedBox( height: 50 ),
+              */
+              
+              SizedBox( height: 50 ),
+              TextButton(
+                onPressed: () => Navigator.pushReplacementNamed(context, 'usuario'), 
+                style: ButtonStyle(
+                  overlayColor: WidgetStateProperty.all( Colors.indigo),
+                  shape: WidgetStateProperty.all( StadiumBorder() )
+                ),
+                child: Text('Crear una nueva cuenta', style: TextStyle( fontSize: 18, color: Colors.black87 ),)
+              ),
+              SizedBox( height: 50 ),
+
             ],
           ),
         )
@@ -165,9 +179,9 @@ class _LoginForm extends StatelessWidget {
 
                 if( !loginForm.isValidForm() ) return;
 
-                loginForm.isLoading = true;
+                //loginForm.isLoading = true;
 
-                await Future.delayed(Duration(seconds: 2 ));
+                //await Future.delayed(Duration(seconds: 2 ));
 
                 // TODO: validar si el login es correcto
                 final String? errorMessage = await authService.loginLocal(loginForm.correo, loginForm.password);
@@ -176,18 +190,19 @@ class _LoginForm extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, 'home');
                 } else {
                   // TODO: mostrar error en pantalla
-                  // print( errorMessage );
+                  //print( errorMessage );
+                  
                   NotificationsService.showSnackbar(errorMessage);
                   loginForm.isLoading = false;
                 }
 
 
 
-                loginForm.isLoading = false;
+                //loginForm.isLoading = false;
 
                 //loginForm.validarLogin();
 
-                Navigator.pushReplacementNamed(context, 'home');
+                //Navigator.pushReplacementNamed(context, 'home');
               }
             )
 

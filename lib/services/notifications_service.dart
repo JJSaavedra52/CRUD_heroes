@@ -9,7 +9,7 @@ class NotificationsService {
 
   static showSnackbar( String message ) {
 
-    final snackBar = new SnackBar(
+    final snackBar = SnackBar(
       content: Text( message, style: TextStyle( color: Colors.white, fontSize: 20) ),
     );
 

@@ -5,7 +5,7 @@ import 'package:fl_componentes/models/models.dart';
 
 class AppRoutes {
   //Se puede acceder sin necesidad de instanciar la clase
-  static const initialRoute = 'home';
+  static const initialRoute = 'login';
 
   static final menuOptions = <MenuOption>[
 //    MenuOption(route: 'home', name: 'Home',screen: const HomeScreen(),icon: Icons.home, status:0),
@@ -15,9 +15,8 @@ class AppRoutes {
     MenuOption(route: 'alert', name: 'Alerta',screen: const AlertScreen(),icon: Icons.align_vertical_bottom, ),
     MenuOption(route: 'card', name: 'Tarjetas',screen: const CardScreen(),icon: Icons.credit_card,  ),
     MenuOption(route: 'prueba', name: 'Prueba',screen: const PruebaScreen(),icon: Icons.access_alarm, ),
-    //MenuOption(route: 'login1', name: 'Login1',screen: const Login1Screen(),icon: Icons.access_alarm, ),
-    MenuOption(route: 'login', name: 'Login',screen: const LoginScreen(),icon: Icons.login, ),
-    MenuOption(route: 'usuario', name: 'Usuario',screen: const UsuarioScreen(),icon: Icons.person, ),
+    //MenuOption(route: 'login', name: 'Login',screen: const LoginScreen(),icon: Icons.login, ),
+    //MenuOption(route: 'usuario', name: 'Usuario',screen: const UsuarioScreen(),icon: Icons.person, ),
   ];
 
 
@@ -28,8 +27,8 @@ class AppRoutes {
 
     //Adicionar de forma manual las rutas que no se quieren ver en el menu
     appRoutes.addAll({ 'home' : ( BuildContext context ) => const HomeScreen() });
-    //appRoutes.addAll({ 'login' : ( BuildContext context ) => const LoginScreen() });
-    appRoutes.addAll({ 'login1' : ( BuildContext context ) => const Login1Screen() });
+    appRoutes.addAll({ 'login' : ( BuildContext context ) => const LoginScreen() });
+    appRoutes.addAll({ 'usuario' : ( BuildContext context ) => const UsuarioScreen() });
 
     for (final option in menuOptions){
       appRoutes.addAll({option.route: (BuildContext context) => option.screen});

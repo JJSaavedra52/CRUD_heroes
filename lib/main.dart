@@ -25,13 +25,16 @@ class AppState extends StatelessWidget {
     //return const Placeholder();
   }
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
+      //Ojo para los mensajes 
+      scaffoldMessengerKey: NotificationsService.messengerKey,
+
       debugShowCheckedModeBanner: false,
 
       title: 'Material App',
