@@ -10,8 +10,13 @@ import 'package:http/http.dart' as http;
 class AuthService extends ChangeNotifier {
   final String _baseUrl = 'identitytoolkit.googleapis.com';
   final String _firebaseToken = 'AIzaSyBcytoCbDUARrX8eHpcR-Bdrdq0yUmSjf8';
+  //#final String _baseUrlLocal = 'localhost:8081';
+  // Use full URL for local backend and parse it directly
+  // final String _baseUrlLocal = 'http://localhost:8081';
+  final String _baseUrlLocal = 'https://rest-sorella-production.up.railway.app';
 
-  final String _baseUrlLocal = 'localhost:8081';
+  // Public getter so other parts of the app can use the same base URL
+  String get apiBaseUrl => _baseUrlLocal;
 
   final storage = new FlutterSecureStorage();
 
@@ -62,7 +67,7 @@ class AuthService extends ChangeNotifier {
     final url = Uri.http(_baseUrlLocal, '/api/usuarios', {
       //'key': _firebaseToken,
     });
-
+    //final url = Uri.parse('$_baseUrlLocal/api/usuarios');
     //Envia la peticion
     final resp = await http.post(
       url, 
@@ -111,7 +116,6 @@ class AuthService extends ChangeNotifier {
         
       } else {
         //print('Autenticación correcta');
-        
         /*
         if (decodedResp.containsKey('token')) {
           // Token hay que guardarlo en un lugar seguro
@@ -121,16 +125,9 @@ class AuthService extends ChangeNotifier {
         }
         */
         return null;
-
-
       }
     }
-    
-
-
   }
-
-
 
   Future<String?> login(String email, String password) async {
     final Map<String, dynamic> authData = {
@@ -157,7 +154,6 @@ class AuthService extends ChangeNotifier {
   }
 
   Future<String?> loginLocal(String correo, String password) async {
-
     final Map<String, dynamic> authData = {
       'correo': correo,
       'password': password,
@@ -167,6 +163,7 @@ class AuthService extends ChangeNotifier {
     final url = Uri.http(_baseUrlLocal, '/api/usuarios/login', {
       //'key': _firebaseToken,
     });
+    //final url = Uri.parse('$_baseUrlLocal/api/usuarios/login');
 
     // Envia la peticion
     final resp = await http.post(
@@ -184,7 +181,6 @@ class AuthService extends ChangeNotifier {
     //print(decodedResp.containsKey('token'));
     //print(decodedResp.containsKey('ok'));
     //print(decodedResp.containsKey('errors'));
-
 
     if (decodedResp.containsKey('errors')) {
       //print("Errores:");
@@ -206,11 +202,10 @@ class AuthService extends ChangeNotifier {
       var ok = decodedResp['ok'] ?? false;
       //print(ok);
       if (!ok) {
-    
+    /*###
         final String mensaje = decodedResp['msg'] ?? 'Error desconocido';
         //print('Error en la autenticación: $mensaje');
-        return 'Error en la autenticación: $mensaje';
-        
+        return 'Error en la autenticación: $mensaje';*/
       } else {
         //print('Autenticación correcta');
         if (decodedResp.containsKey('token')) {
