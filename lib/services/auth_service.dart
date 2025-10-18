@@ -11,12 +11,14 @@ class AuthService extends ChangeNotifier {
   final String _baseUrl = 'identitytoolkit.googleapis.com';
   final String _firebaseToken = 'AIzaSyBcytoCbDUARrX8eHpcR-Bdrdq0yUmSjf8';
   //#final String _baseUrlLocal = 'localhost:8081';
-  // Use full URL for local backend and parse it directly
   // final String _baseUrlLocal = 'http://localhost:8081';
+  // Use full URL for local backend and parse it directly
   final String _baseUrlLocal = 'https://rest-sorella-production.up.railway.app';
+  final String _baseUrlLocal2 = 'rest-sorella-production.up.railway.app';
 
   // Public getter so other parts of the app can use the same base URL
   String get apiBaseUrl => _baseUrlLocal;
+  String get apiBaseUrl2 => _baseUrlLocal2;
 
   final storage = new FlutterSecureStorage();
 
@@ -64,7 +66,7 @@ class AuthService extends ChangeNotifier {
       //'returnSecureToken': true,
     };
 
-    final url = Uri.http(_baseUrlLocal, '/api/usuarios', {
+    final url = Uri.https(_baseUrlLocal2, '/api/usuarios', {
       //'key': _firebaseToken,
     });
     //final url = Uri.parse('$_baseUrlLocal/api/usuarios');
@@ -160,7 +162,7 @@ class AuthService extends ChangeNotifier {
       //'returnSecureToken': true,
     };
 
-    final url = Uri.http(_baseUrlLocal, '/api/usuarios/login', {
+    final url = Uri.https(_baseUrlLocal2, '/api/usuarios/login', {
       //'key': _firebaseToken,
     });
     //final url = Uri.parse('$_baseUrlLocal/api/usuarios/login');
