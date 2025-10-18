@@ -1,7 +1,5 @@
-//import 'dart:convert';
-
+import 'package:fl_componentes/services/auth_service.dart';
 import 'package:flutter/material.dart';
-import '../services/auth_service.dart';
 
 class LoginFormProvider extends ChangeNotifier {
   // ignore: unnecessary_new
@@ -18,10 +16,49 @@ class LoginFormProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool isValidForm() {
-    // debug prints kept minimal
+  bool isValidForm() {/*
     print(formKey.currentState?.validate());
+
     print('$correo - $password');
+
+    return formKey.currentState?.validate() ?? false;
+  }*/
+
+
+  /*
+  validarLogin() async {
+    print('getOnDisplayCharacters');
+
+    //https://rickandmortyapi.com/api/character
+    var url = Uri.http(_baseUrl, 'api/usuarios/login', {
+      //'page': '1'
+    });
+
+    final response = await http.post(
+      url,
+      body: jsonEncode({'correo': email, 'password': password}),
+    );
+
+    print(response);
+
+    final Map<String, dynamic> decodeData = json.decode(response.body);
+
+    //final rickyMortyResponse = RickyMortyResponse.fromJson(response.body);
+
+    //if (response.statusCode != 200) return('error');
+
+    print(decodeData['ok']);
+    //print(rickyMortyResponse.results[0].name);
+
+    //onDisplayCharacter = rickyMortyResponse.results;
+
+    notifyListeners();
+  }
+
+  */
+    // debug prints kept minimal
+    debugPrint(formKey.currentState?.validate().toString());
+    debugPrint('$correo - $password');
     return formKey.currentState?.validate() ?? false;
   }
 

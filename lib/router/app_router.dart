@@ -49,17 +49,17 @@ class AppRoutes {
     //MenuOption(route: 'usuario', name: 'Usuario',screen: const UsuarioScreen(),icon: Icons.person, ),
   ];
 
-  static Map<String, Widget Function(BuildContext)> getAppRoutes() {
+  static Map<String, Widget Function(BuildContext)> getAppRoutes(){
+
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
-    //Adicionar de forma manual las rutas que no se quieren ver en el menu
-    appRoutes.addAll({'home': (BuildContext context) => const HomeScreen()});
-    appRoutes.addAll({'login': (BuildContext context) => const LoginScreen()});
-    appRoutes.addAll({
-      'usuario': (BuildContext context) => const UsuarioScreen(),
-    });
 
-    for (final option in menuOptions) {
+    //Adicionar de forma manual las rutas que no se quieren ver en el menu
+    appRoutes.addAll({ 'home' : ( BuildContext context ) => const HomeScreen() });
+    appRoutes.addAll({ 'login' : ( BuildContext context ) => const LoginScreen() });
+    appRoutes.addAll({ 'usuario' : ( BuildContext context ) => const UsuarioScreen() });
+
+    for (final option in menuOptions){
       appRoutes.addAll({option.route: (BuildContext context) => option.screen});
     }
 

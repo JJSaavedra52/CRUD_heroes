@@ -10,13 +10,15 @@ import 'package:http/http.dart' as http;
 class AuthService extends ChangeNotifier {
   final String _baseUrl = 'identitytoolkit.googleapis.com';
   final String _firebaseToken = 'AIzaSyBcytoCbDUARrX8eHpcR-Bdrdq0yUmSjf8';
-
-  // Use full URL for local backend and parse it directly
+  //#final String _baseUrlLocal = 'localhost:8081';
   // final String _baseUrlLocal = 'http://localhost:8081';
+  // Use full URL for local backend and parse it directly
   final String _baseUrlLocal = 'https://rest-sorella-production.up.railway.app';
+  final String _baseUrlLocal2 = 'rest-sorella-production.up.railway.app';
 
   // Public getter so other parts of the app can use the same base URL
   String get apiBaseUrl => _baseUrlLocal;
+  String get apiBaseUrl2 => _baseUrlLocal2;
 
   final storage = new FlutterSecureStorage();
 
@@ -45,14 +47,14 @@ class AuthService extends ChangeNotifier {
     }
   }
 
-  // Si retornamos algo, es un error, si no, todo bien!
+// Si retornamos algo, es un error, si no, todo bien!
   Future<String?> createUserLocal(
-    String correo,
-    String password,
-    String nombre,
-    String img,
-    String rol,
-    bool google,
+  String correo, 
+  String password, 
+  String nombre,
+  String img ,
+  String rol,
+  bool google
   ) async {
     final Map<String, dynamic> authData = {
       'correo': correo,
@@ -64,13 +66,15 @@ class AuthService extends ChangeNotifier {
       //'returnSecureToken': true,
     };
 
-    final url = Uri.parse('$_baseUrlLocal/api/usuarios');
-
+    final url = Uri.https(_baseUrlLocal2, '/api/usuarios', {
+      //'key': _firebaseToken,
+    });
+    //final url = Uri.parse('$_baseUrlLocal/api/usuarios');
     //Envia la peticion
     final resp = await http.post(
-      url,
+      url, 
       headers: {'Content-Type': 'application/json'},
-      body: json.encode(authData),
+      body: json.encode(authData)
     );
 
     //Decodifica la respuesta
@@ -107,12 +111,13 @@ class AuthService extends ChangeNotifier {
       var ok = decodedResp['ok'] ?? false;
       //print(ok);
       if (!ok) {
+    
         final String mensaje = decodedResp['msg'] ?? 'Error desconocido';
         //print('Error en la autenticación: $mensaje');
         return 'Error en la autenticación: $mensaje';
+        
       } else {
         //print('Autenticación correcta');
-
         /*
         if (decodedResp.containsKey('token')) {
           // Token hay que guardarlo en un lugar seguro
@@ -157,7 +162,10 @@ class AuthService extends ChangeNotifier {
       //'returnSecureToken': true,
     };
 
-    final url = Uri.parse('$_baseUrlLocal/api/usuarios/login');
+    final url = Uri.https(_baseUrlLocal2, '/api/usuarios/login', {
+      //'key': _firebaseToken,
+    });
+    //final url = Uri.parse('$_baseUrlLocal/api/usuarios/login');
 
     // Envia la peticion
     final resp = await http.post(
@@ -196,6 +204,7 @@ class AuthService extends ChangeNotifier {
       var ok = decodedResp['ok'] ?? false;
       //print(ok);
       if (!ok) {
+        //###
         final String mensaje = decodedResp['msg'] ?? 'Error desconocido';
         //print('Error en la autenticación: $mensaje');
         return 'Error en la autenticación: $mensaje';
@@ -209,8 +218,9 @@ class AuthService extends ChangeNotifier {
         }
       }
     }
-
+    
     //return null;
+
   }
 
   Future logout() async {

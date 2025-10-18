@@ -12,13 +12,13 @@ class RickMortyProvider extends ChangeNotifier {
   List<Character> onDisplayCharacter = []; 
 
   RickMortyProvider(){
-    print('RickyMortyProvider Inicializado');
+    debugPrint('RickyMortyProvider Inicializado');
 
     getOnDisplayCharacters();
   }
 
   getOnDisplayCharacters() async{
-    print('getOnDisplayCharacters');
+    debugPrint('getOnDisplayCharacters');
 
 
     //https://rickandmortyapi.com/api/character
