@@ -64,10 +64,10 @@ class AuthService extends ChangeNotifier {
       //'returnSecureToken': true,
     };
 
-    final url = Uri.http(_baseUrlLocal, '/api/usuarios', {
-      //'key': _firebaseToken,
-    });
-    //final url = Uri.parse('$_baseUrlLocal/api/usuarios');
+    // final url = Uri.http(_baseUrlLocal, '/api/usuarios', {
+    //   //'key': _firebaseToken,
+    // });
+    final url = Uri.parse('$_baseUrlLocal/api/usuarios');
     //Envia la peticion
     final resp = await http.post(
       url,
