@@ -201,9 +201,9 @@ class AuthService extends ChangeNotifier {
       }
     } else {
       //print("No hay errores en la respuesta.");
-      var ok = decodedResp['ok'] ?? false;
+      bool ok = decodedResp['ok'] ?? false;
       //print(ok);
-      if (!ok) {
+      if (ok == false) {
         //###
         final String mensaje = decodedResp['msg'] ?? 'Error desconocido';
         //print('Error en la autenticación: $mensaje');
