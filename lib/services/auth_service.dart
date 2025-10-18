@@ -45,14 +45,14 @@ class AuthService extends ChangeNotifier {
     }
   }
 
-// Si retornamos algo, es un error, si no, todo bien!
+  // Si retornamos algo, es un error, si no, todo bien!
   Future<String?> createUserLocal(
-  String correo, 
-  String password, 
-  String nombre,
-  String img ,
-  String rol,
-  bool google
+    String correo,
+    String password,
+    String nombre,
+    String img,
+    String rol,
+    bool google,
   ) async {
     final Map<String, dynamic> authData = {
       'correo': correo,
@@ -70,9 +70,9 @@ class AuthService extends ChangeNotifier {
     //final url = Uri.parse('$_baseUrlLocal/api/usuarios');
     //Envia la peticion
     final resp = await http.post(
-      url, 
+      url,
       headers: {'Content-Type': 'application/json'},
-      body: json.encode(authData)
+      body: json.encode(authData),
     );
 
     //Decodifica la respuesta
@@ -109,11 +109,9 @@ class AuthService extends ChangeNotifier {
       var ok = decodedResp['ok'] ?? false;
       //print(ok);
       if (!ok) {
-    
         final String mensaje = decodedResp['msg'] ?? 'Error desconocido';
         //print('Error en la autenticación: $mensaje');
         return 'Error en la autenticación: $mensaje';
-        
       } else {
         //print('Autenticación correcta');
         /*
@@ -160,10 +158,10 @@ class AuthService extends ChangeNotifier {
       //'returnSecureToken': true,
     };
 
-    final url = Uri.http(_baseUrlLocal, '/api/usuarios/login', {
-      //'key': _firebaseToken,
-    });
-    //final url = Uri.parse('$_baseUrlLocal/api/usuarios/login');
+    // final url = Uri.http(_baseUrlLocal, '/api/usuarios/login', {
+    //'key': _firebaseToken,
+    // });
+    final url = Uri.parse('$_baseUrlLocal/api/usuarios/login');
 
     // Envia la peticion
     final resp = await http.post(
@@ -202,7 +200,7 @@ class AuthService extends ChangeNotifier {
       var ok = decodedResp['ok'] ?? false;
       //print(ok);
       if (!ok) {
-    /*###
+        /*###
         final String mensaje = decodedResp['msg'] ?? 'Error desconocido';
         //print('Error en la autenticación: $mensaje');
         return 'Error en la autenticación: $mensaje';*/
@@ -216,9 +214,8 @@ class AuthService extends ChangeNotifier {
         }
       }
     }
-    
-    //return null;
 
+    //return null;
   }
 
   Future logout() async {
