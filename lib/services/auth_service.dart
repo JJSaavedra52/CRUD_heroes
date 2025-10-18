@@ -204,10 +204,10 @@ class AuthService extends ChangeNotifier {
       var ok = decodedResp['ok'] ?? false;
       //print(ok);
       if (!ok) {
-    /*###
+        //###
         final String mensaje = decodedResp['msg'] ?? 'Error desconocido';
         //print('Error en la autenticación: $mensaje');
-        return 'Error en la autenticación: $mensaje';*/
+        return 'Error en la autenticación: $mensaje';
       } else {
         //print('Autenticación correcta');
         if (decodedResp.containsKey('token')) {
